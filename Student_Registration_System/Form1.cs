@@ -16,6 +16,7 @@ namespace Student_Registration_System
         public Form1()
         {
             InitializeComponent();
+            Load1();
         }
 
         SqlConnection con = new SqlConnection("Data Source=DESKTOP-EG4GFB6\\SQLEXPRESS; Initial Catalog=Student_Registration_System_db; User ID=sa; Password=TkD58630");
@@ -24,6 +25,38 @@ namespace Student_Registration_System
         string id;
         bool Mode = true;
         string sql;
+
+
+        public void Load1()
+        {
+            try
+            {
+                sql = "SELECT * FROM student_tbl";
+                
+                cmd = new SqlCommand(sql, con);
+                con.Open();
+                read = cmd.ExecuteReader();
+                dataGridView1.Rows.Clear();
+
+                while(read.Read())
+                {
+                    dataGridView1.Rows.Add(read[0], read[1], read[2], read[3]);
+                }
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+
+
+
+
+
 
         //if the mode is true means add record otherwise update record
         private void button1_Click(object sender, EventArgs e)
@@ -53,6 +86,11 @@ namespace Student_Registration_System
 
             }
             con.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
