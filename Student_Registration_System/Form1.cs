@@ -53,7 +53,22 @@ namespace Student_Registration_System
 
 
 
+        public void getID(string id)
+        {
+            sql = "SELECT * FROM student_tbl WHERE id = '" + id + "'";
+            cmd = new SqlCommand(sql, con);
+            con.Open();
+            read = cmd.ExecuteReader();
 
+            while(read.Read())
+            {
+                textStuNum.Text = read[1].ToString();
+                textIdNum.Text = read[2].ToString();
+                textCourse.Text = read[3].ToString();
+            }
+
+            con.Close();
+        }
 
 
 
@@ -83,7 +98,23 @@ namespace Student_Registration_System
             }
             else
             {
+                id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                sql = "UPDATE student_tbl SET studentNumber = @studentNumber, idNumber = @idNumber, course = @course WHERE id = @id";
+                con.Open();
+                cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@studentNumber", sNum);
+                cmd.Parameters.AddWithValue("@idNumber", idNum);
+                cmd.Parameters.AddWithValue("@course", course);
+                cmd.Parameters.AddWithValue("@id", id);
+                MessageBox.Show("Record Updated!!!");
+                cmd.ExecuteNonQuery();
 
+                textStuNum.Clear();
+                textIdNum.Clear();
+                textCourse.Clear();
+                textStuNum.Focus();
+
+                Mode = true;
             }
             con.Close();
         }
@@ -91,6 +122,43 @@ namespace Student_Registration_System
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == dataGridView1.Columns["Edit"].Index && e.RowIndex >=0)
+            {
+                Mode = false;
+                id = dataGridView1.CurrentRow.Cells[0].Value.ToString();    
+                getID(id);
+            }
+            else if (e.ColumnIndex == dataGridView1.Columns["Delete"].Index && e.RowIndex >= 0)
+            {
+                Mode = false;
+                id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                sql = "DELETE FROM student_tbl WHERE id = @id";
+                con.Open();
+                cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Record Deleted!!!");
+                con.Close();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Load1();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textStuNum.Clear();
+            textIdNum.Clear();
+            textCourse.Clear();
+            textStuNum.Focus();
+
+            Mode = true;
         }
     }
 }
