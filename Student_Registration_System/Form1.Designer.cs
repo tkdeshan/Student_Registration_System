@@ -33,12 +33,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textIdNum = new System.Windows.Forms.TextBox();
+            this.textStuNum = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textCourse = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -85,9 +85,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textCourse);
+            this.groupBox1.Controls.Add(this.textIdNum);
+            this.groupBox1.Controls.Add(this.textStuNum);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -99,19 +99,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Registrtion";
             // 
-            // textBox1
+            // textIdNum
             // 
-            this.textBox1.Location = new System.Drawing.Point(171, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 26);
-            this.textBox1.TabIndex = 4;
+            this.textIdNum.Location = new System.Drawing.Point(171, 83);
+            this.textIdNum.Name = "textIdNum";
+            this.textIdNum.Size = new System.Drawing.Size(148, 26);
+            this.textIdNum.TabIndex = 5;
             // 
-            // textBox2
+            // textStuNum
             // 
-            this.textBox2.Location = new System.Drawing.Point(171, 83);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(148, 26);
-            this.textBox2.TabIndex = 5;
+            this.textStuNum.Location = new System.Drawing.Point(171, 35);
+            this.textStuNum.Name = "textStuNum";
+            this.textStuNum.Size = new System.Drawing.Size(148, 26);
+            this.textStuNum.TabIndex = 4;
             // 
             // button1
             // 
@@ -122,6 +122,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "SAVE";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -141,13 +142,12 @@
             this.dataGridView1.Size = new System.Drawing.Size(495, 229);
             this.dataGridView1.TabIndex = 7;
             // 
-            // comboBox1
+            // textCourse
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(171, 130);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(148, 28);
-            this.comboBox1.TabIndex = 7;
+            this.textCourse.Location = new System.Drawing.Point(171, 130);
+            this.textCourse.Name = "textCourse";
+            this.textCourse.Size = new System.Drawing.Size(148, 26);
+            this.textCourse.TabIndex = 6;
             // 
             // Form1
             // 
@@ -177,12 +177,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textIdNum;
+        private System.Windows.Forms.TextBox textStuNum;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textCourse;
     }
 }
 
