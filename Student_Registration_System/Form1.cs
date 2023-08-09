@@ -19,7 +19,7 @@ namespace Student_Registration_System
             Load1();
         }
 
-        SqlConnection con = new SqlConnection("Data Source=DESKTOP-EG4GFB6\\SQLEXPRESS; Initial Catalog=Student_Registration_System_db; User ID=sa; Password=TkD58630");
+        SqlConnection con = new SqlConnection("Data Source=DESKTOP-UH60G65; Initial Catalog=Student_Registration_System_Db; User ID=sa; Password=TkD58630");
         SqlCommand cmd;
         SqlDataReader read;
         string id;
